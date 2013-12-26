@@ -1,8 +1,17 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <title>Pixel-writer</title>
+        <script src="js/writer.js"></script>
     </head>
     <body>
-        Hello pixel-writer
-        <img src="img/santa.jpg">
+        <h1>Pixel writer</h1>
+        <canvas id="canvas">Your browser doesn't support "canvas".</canvas>
+        <script>
+            result = prompt("Write text");
+            canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
+            write(result,ctx);
+        </script>
     </body>
 </html>
