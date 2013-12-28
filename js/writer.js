@@ -10,6 +10,7 @@ charList.add=function(list){
 
 charList.add(punctuation);
 charList.add(english);
+charList.add(russian);
 
 cellSizeX=10;
 cellSizeY=10;
