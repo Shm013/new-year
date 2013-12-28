@@ -48,15 +48,34 @@ Question=[[0,1,1,0],
           [0,0,0,0],
           [0,0,1,0],
           [0,0,0,0]];
+//,
+Comma=[[0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [1],
+       [1]];
 
+english={enA:{name:'A',value:A},
+         enB:{name:'B',value:B},
+         enC:{name:'C',value:C},
+         enD:{name:'D',value:D},
+         enE:{name:'E',value:E}};
 
-english=[{name:'A',value:A},
-         {name:'B',value:B},
-         {name:'C',value:C},
-         {name:'D',value:D},
-         {name:'E',value:E}];
+punctuation={pQ:{name:'?',value:Question},
+             pC:{name:',',value:Comma}};
 
-punctuation={pQ:{name:'?',value:Question}}
+charList={};
+charList.add=function(list){
+    for(var key in list){
+        if(charList[key])
+            clonsole.log("Ahtung! Double letters name in charList!");
+        charList[key]=list[key];
+    }
+}
+charList.add(punctuation);
+charList.add(english);
 
 cellSizeX=10;
 cellSizeY=10;
@@ -80,14 +99,14 @@ function parse(text){
     for(var i=0;i<text.length;i++){
         c=text[i];
         var tmp = null;
-        
-        for(var j=0;j<english.length;j++){
-
-            if(c==english[j].name){
-                tmp=english[j].value;
+            
+        for(var p in charList){
+            if(charList[p].name==c){
+                tmp=charList[p].value;
                 break;
             }
-        }
+        }    
+        
         if(!tmp)
             tmp=Question;        
 
