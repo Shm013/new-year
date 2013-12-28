@@ -1,3 +1,27 @@
+$(document).ready(function(){
+    $('#q0').slideDown();
+    $('#q0').on('click','button',function(){
+        $('#q1').slideDown();
+    });
+    $('#q1').on('click','button',function(){
+        $('#q2').slideDown();
+    });
+    $('#q2').on('click','button',function(){
+        $('#q3').slideDown();
+    });
+    $('#q3').on('click','button',function(){
+        text = $(this).closest('#q3').find('textarea').val();
+        console.log(text);
+        canvas = document.getElementById('canvas');
+        ctx = canvas.getContext('2d');
+        write(text,ctx);
+        $('#message').slideDown();
+    });
+    $('#message').on('click','button',function(){
+        $('#present').slideDown();
+    });
+});
+
 
 charList={};
 charList.add=function(list){

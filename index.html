@@ -6,43 +6,53 @@
             header, section, footer, aside, nav, article, figure{ 
                 display: block; 
             }
+            #q0, #q1, #q2, #q3, #message, #present{
+                display: none;
+            }
         </style>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script src="js/Punctuation.js"></script>
         <script src="js/EN.js"></script>
         <script src="js/RU.js"></script>
-        <script src="js/writer.js"></script>
+        <script src="js/application.js"></script>
     </head>
     <body>
         <header>
-            <h1>Шаман поздравляет</h1>
-            <p>Детишки, хорошо ли вы себя вели в этом году?</p>
-            <p>Да расcлабтесь - мне пофигу).</p>
+            <h1>Шаман поздравляет!</h1>
         </header>
         <section id="questions">
+            <section id="q0">
+                <header>
+                    <h1>Xорошо ли ты себя вел(а) в этом году?</h1>
+                </header>
+                <button class="test">Да!</button>
+                <button>Нет.</button>
+            </section>
             <section id="q1">
                 <header>
-                    Любишь Новый Год?
+                    <p>Да расcлабтесь - мне пофигу).</p>
+                    <h1>Любишь Новый Год?</h1>
                 <header>
                 <button>Да!</button>
                 <button>Нет.</button>
             </section>
             <section id="q2">
-                <header>Ты любишь гирлянды?</header>
+                <header><h1>Ты любишь гирлянды?<h1></header>
                 <button>Да! Они классные!</button>
                 <button>Нет, я эпилепсик(</button>
             </section>
-            </section>
             <section id="q3">
-                <header>Я типа Дед Мороз. Как тебя зовут?</header>
+                <header><h1>Я типа Дед Мороз. Как тебя зовут?</h1></header>
                 <textarea id="text"></textarea>
                 <button>OK.</button>
             </section>
+        </section>
         <section id="message">
             <section>
             <canvas id="canvas">Your browser doesn't support "canvas".</canvas>
             </section>
             <section>
-                <p>Хочешь подарок?</p>
+                <h1>Хочешь подарок?</h1>
                 <button>Да! Халява же!</button>
                 <button>Нет, я унылое говно.</button>
             </section>
