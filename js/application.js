@@ -38,8 +38,10 @@ charList.add(russian);
 
 cellSizeX=10;
 cellSizeY=10;
+cellInLine=7;
 
 function Field(){
+    this.line=0;
     this.value=[[],
                 [],
                 [],
@@ -48,8 +50,17 @@ function Field(){
                 [],
                 []];
     this.add = function(a){
-        for(var i=0;i<this.value.length;i++)
-            this.value[i]=this.value[i].concat(0,a[i]);
+        var j=0;
+        for(var i=this.line;i<this.value.length;i++){
+            this.value[i]=this.value[i].concat(0,a[j]);
+            j++;
+        }
+    }
+    this.newLine = function(){
+        this.line+=cellInLine;
+        for(var i=0;i<cellInLine;i++){
+            this.value[this.value.length++]=[];
+        }
     }
 }
 
@@ -58,14 +69,20 @@ function parse(text){
     for(var i=0;i<text.length;i++){
         c=text[i];
         var tmp = null;
-            
+        
+        if(c=="\n"){
+            console.log("!");
+            total.newLine();
+            continue;
+        }
+    
         for(var p in charList){
             if(charList[p].name==c){
                 tmp=charList[p].value;
                 break;
             }
-        }    
-        
+        }            
+
         if(!tmp)
             tmp=Question;        
 
@@ -79,7 +96,7 @@ function draw(a,ctx){
     ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
     
     for(i=0;i<a.length;i++)
-        for(j=0;j<a[0].length;j++)
+        for(j=0;j<a[i].length;j++)
             if(a[i][j]==1){
                 color = 'rgb(' + Math.floor(Math.random()*255) + ','
                                + Math.floor(Math.random()*255) + ','
@@ -90,8 +107,8 @@ function draw(a,ctx){
 }
 
 function write(text,ctx){
-    text=text.toUpperCase();
-    test=parse(text);
+    var text=text.toUpperCase();
+    var test=parse(text);
     if(test){
         draw(test,ctx);
     }
