@@ -7,6 +7,34 @@ A=[[0,0,0,0],
    [1,1,1,1],
    [1,0,0,1]];
 
+B=[[0,0,0,0],
+   [1,1,1,0],
+   [1,0,0,1],
+   [1,1,1,0],
+   [1,0,0,1],
+   [1,1,1,0]];
+
+C=[[0,0,0,0],
+   [0,1,1,0],
+   [1,0,0,1],
+   [1,0,0,0],
+   [1,0,0,1],
+   [0,1,1,0]];
+
+D=[[0,0,0,0],
+   [1,1,1,0],
+   [1,0,0,1],
+   [1,0,0,1],
+   [1,0,0,1],
+   [1,1,1,0]];
+
+E=[[0,0,0,0],
+   [1,1,1,1],
+   [1,0,0,0],
+   [1,1,1,0],
+   [1,0,0,0],
+   [1,1,1,1]];
+
 //?
 _=[[0,1,1,0],
    [1,0,0,1],
@@ -16,37 +44,45 @@ _=[[0,1,1,0],
    [0,0,1,0]];
 
 
+english=[{name:'A',value:A},
+         {name:'B',value:B},
+         {name:'C',value:C},
+         {name:'D',value:D},
+         {name:'E',value:E}];
+
 cellSizeX=10;
 cellSizeY=10;
 
 function Field(){
-    this.value=[[0],
-                [0],
-                [0],
-                [0],
-                [0],
-                [0]];
+    this.value=[[],
+                [],
+                [],
+                [],
+                [],
+                []];
     this.add = function(a){
         for(var i=0;i<this.value.length;i++)
-            this.value[i]=this.value[i].concat(a[i]);
+            this.value[i]=this.value[i].concat(0,a[i]);
     }
 }
 
 function parse(text){
     var total = new Field();
-    console.log(text);
     for(var i=0;i<text.length;i++){
-        console.log(i);
         c=text[i];
         var tmp;
-        switch(c){
-            case 'A':
-                tmp = A;
+        
+        for(var j=0;j<english.length;j++){
+
+            console.log(c+english[j].name);
+            if(c==english[j].name){
+                tmp=english[j].value;
                 break;
-            default:
-                tmp = _;
-                break;
+            }
         }
+        if(!tmp)
+            tmp=_;        
+
         total.add(tmp);
     }
     return total.value;
