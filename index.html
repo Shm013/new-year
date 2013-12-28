@@ -2,19 +2,65 @@
     <head>
         <meta charset="utf-8">
         <title>Pixel-writer</title>
+        <style type="text/css">
+            header, section, footer, aside, nav, article, figure{ 
+                display: block; 
+            }
+        </style>
         <script src="js/Punctuation.js"></script>
         <script src="js/EN.js"></script>
         <script src="js/RU.js"></script>
         <script src="js/writer.js"></script>
     </head>
     <body>
-        <h1>Pixel writer</h1>
-        <canvas id="canvas">Your browser doesn't support "canvas".</canvas>
+        <header>
+            <h1>Шаман поздравляет</h1>
+            <p>Детишки, хорошо ли вы себя вели в этом году?</p>
+            <p>Да расcлабтесь - мне пофигу).</p>
+        </header>
+        <section id="questions">
+            <section id="q1">
+                <header>
+                    Любишь Новый Год?
+                <header>
+                <button>Да!</button>
+                <button>Нет.</button>
+            </section>
+            <section id="q2">
+                <header>Ты любишь гирлянды?</header>
+                <button>Да! Они классные!</button>
+                <button>Нет, я эпилепсик(</button>
+            </section>
+            </section>
+            <section id="q3">
+                <header>Я типа Дед Мороз. Как тебя зовут?</header>
+                <textarea id="text"></textarea>
+                <button>OK.</button>
+            </section>
+        <section id="message">
+            <section>
+            <canvas id="canvas">Your browser doesn't support "canvas".</canvas>
+            </section>
+            <section>
+                <p>Хочешь подарок?</p>
+                <button>Да! Халява же!</button>
+                <button>Нет, я унылое говно.</button>
+            </section>
+        </section>
+        <section id="present">
+            <p>Вот он:</p>
+            <img src="img/present.jpg" />
+            <p>Ну да, подарок липовый. А ты думал(а) в сказу попал(а)?</p>
+        </section>
+        <footer>
+            <p>Shm do it!</p>
+            <p><a>https://github.com/Shm13/<a></p>
+        </footer>
         <script>
-            result = prompt("Write text");
-            canvas = document.getElementById('canvas');
-            ctx = canvas.getContext('2d');
-            write(result,ctx);
+            //result = prompt("Write text");
+            //canvas = document.getElementById('canvas');
+            //ctx = canvas.getContext('2d');
+            //write(result,ctx);
         </script>
     </body>
 </html>
