@@ -3,11 +3,43 @@
         <meta charset="utf-8">
         <title>Pixel-writer</title>
         <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+                border-collapse: collapse;
+            }
+            html{
+                height: 100%;
+            }
+            body{
+                position: relative;
+                min-height: 100%;
+            }
+            .wrapper {
+                padding-bottom:70px;
+            }
+            .footer {
+                position:absolute;
+                bottom:0;
+                left:0;
+                z-index:500;
+                width:100%;
+                height:50px;
+                overflow:hidden;
+                background-image: url(img/foterImg.png);
+            } 
+            body {
+                background-image: url(img/bgImg.png);
+            } 
+            canvas, img{
+                border: 2px solid CornflowerBlue;
+                border-radius: 39px;
+            }
             header, section, footer, aside, nav, article, figure{ 
                 display: block;
                 text-align: center;
             }
-            #q0, #q1, #q2, #q3, #message, #present{
+            #q0, #q1, #message, #present{
                 display: none;
             }
         </style>
@@ -18,60 +50,37 @@
         <script src="js/application.js"></script>
     </head>
     <body>
-        <header>
+        <header class="header">
             <h1>Шаман поздравляет!</h1>
         </header>
-        <section id="questions">
-            <section id="q0">
-                <header>
+        <section class="wrapper">
+            <section class="push" id="questions">
+                <section id="q0">
                     <h1>Xорошо ли ты себя вел(а) в этом году?</h1>
-                </header>
-                <button class="test">Да!</button>
-                <button>Нет.</button>
-            </section>
-            <section id="q1">
-                <header>
+                    <button class="test">Да!</button>
+                    <button>Нет.</button>
+                </section>
+                <section id="q1">
                     <p>Да расcлабся - мне пофигу).</p>
-                    <h1>Скоро Новый Год?</h1>
-                <header>
-                <button id="yes">Да!</button>
-                <button id="no">Нет.</button>
+                    <h1>Я типа Дед Мороз. Как тебя зовут?</h1>
+                    <textarea id="text"></textarea>
+                    <button>OK.</button>
+                </section>
             </section>
-            <section id="q2">
-                <header><h1>Ты любишь гирлянды?<h1></header>
-                <button>Да! Они классные!</button>
-                <button>Нет, я эпилепсик(</button>
-            </section>
-            <section id="q3">
-                <header><h1>Я типа Дед Мороз. Как тебя зовут?</h1></header>
-                <textarea id="text"></textarea>
-                <button>OK.</button>
-            </section>
-        </section>
-        <section id="message">
-            <section>
-            <canvas id="canvas">Your browser doesn't support "canvas".</canvas>
-            </section>
-            <section>
+            <section id="message">
+                <canvas id="canvas">Your browser doesn't support "canvas".</canvas>
                 <h1>Хочешь подарок?</h1>
                 <button>Да! Халява же!</button>
-                <button>Нет, я унылое говно.</button>
+            </section>
+            <section id="present">
+                <p>Вот он:</p>
+                <img src="img/present.jpg" />
+                <p>Ну да, подарок липовый. А ты думал(а) в сказу попал(а)?</p>
             </section>
         </section>
-        <section id="present">
-            <p>Вот он:</p>
-            <img src="img/present.jpg" />
-            <p>Ну да, подарок липовый. А ты думал(а) в сказу попал(а)?</p>
-        </section>
-        <footer>
+        <footer class="footer">
             <p>Shm do it!</p>
             <p><a>https://github.com/Shm13/<a></p>
         </footer>
-        <script>
-            //result = prompt("Write text");
-            //canvas = document.getElementById('canvas');
-            //ctx = canvas.getContext('2d');
-            //write(result,ctx);
-        </script>
     </body>
 </html>

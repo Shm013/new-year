@@ -16,13 +16,7 @@ $(document).ready(function(){
         $('#q1').slideDown();
     });
     $('#q1').on('click','button',function(){
-        $('#q2').slideDown();
-    });
-    $('#q2').on('click','button',function(){
-        $('#q3').slideDown();
-    });
-    $('#q3').on('click','button',function(){
-        text = $(this).closest('#q3').find('textarea').val();
+        text = $(this).closest('#q1').find('textarea').val();
         text = " " + text + ",\nC Новым\n Годом!";
         
         canvas = document.getElementById('canvas');
