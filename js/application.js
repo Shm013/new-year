@@ -1,4 +1,16 @@
 $(document).ready(function(){
+    
+    //Сдесь подключать словари
+    charList.add(punctuation);
+    charList.add(english);
+    charList.add(russian);
+
+    //Размер клеток
+    cellSizeX=10;
+    cellSizeY=10;
+    //Высота строки
+    cellInLine=7;
+    
     $('#q0').slideDown();
     $('#q0').on('click','button',function(){
         $('#q1').slideDown();
@@ -11,9 +23,13 @@ $(document).ready(function(){
     });
     $('#q3').on('click','button',function(){
         text = $(this).closest('#q3').find('textarea').val();
-        console.log(text);
+        text = " " + text + ",\nC Новым\n Годом!";
+        
         canvas = document.getElementById('canvas');
         ctx = canvas.getContext('2d');
+        canvas.height = maxLineNum(text)*cellSizeY*cellInLine;
+        canvas.width = (maxLineSize(text)+1)*cellSizeX*5;
+        
         write(text,ctx);
         $('#message').slideDown();
     });
@@ -22,6 +38,22 @@ $(document).ready(function(){
     });
 });
 
+function maxLineSize(value){
+    var lines = value.split(/\r|\n/g);
+    var biggest;
+    
+    lines.forEach(function(line){
+        if(!biggest||line.length>biggest.length){
+            biggest = line;
+        }
+    });
+    return biggest.length;
+}
+
+function maxLineNum(value){
+    var lines = value.split(/\r|\n/g);
+    return lines.length;
+}
 
 charList={};
 charList.add=function(list){
@@ -31,14 +63,6 @@ charList.add=function(list){
         charList[key]=list[key];
     }
 }
-
-charList.add(punctuation);
-charList.add(english);
-charList.add(russian);
-
-cellSizeX=10;
-cellSizeY=10;
-cellInLine=7;
 
 function Field(){
     this.line=0;
@@ -64,6 +88,7 @@ function Field(){
     }
 }
 
+//Парсим любой текст - возвращяем двумерный массив из 0 и 1 согласно словарям.
 function parse(text){
     var total = new Field();
     for(var i=0;i<text.length;i++){
@@ -71,7 +96,6 @@ function parse(text){
         var tmp = null;
         
         if(c=="\n"){
-            console.log("!");
             total.newLine();
             continue;
         }
@@ -98,7 +122,7 @@ function draw(a,ctx){
     for(i=0;i<a.length;i++)
         for(j=0;j<a[i].length;j++)
             if(a[i][j]==1){
-                color = 'rgb(' + Math.floor(Math.random()*255) + ','
+                var color = 'rgb(' + Math.floor(Math.random()*255) + ','
                                + Math.floor(Math.random()*255) + ','
                                + Math.floor(Math.random()*255) + ')';
                 ctx.fillStyle = color;

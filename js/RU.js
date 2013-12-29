@@ -166,6 +166,16 @@ rIa=[[0,0,0,0],
      [1,0,0,1],
      [0,0,0,0]];
 
+rWtf=[[0,0,0,0,0],
+      [1,0,0,0,1],
+      [1,0,0,0,1],
+      [1,1,0,0,1],
+      [1,0,1,0,1],
+      [1,1,0,0,1],
+      [0,0,0,0,0]];
+
+
+
 russian={ruA:{name:'А',value:A},
          ruB:{name:'Б',value:rB},
          ruV:{name:'В',value:B},
@@ -194,6 +204,7 @@ russian={ruA:{name:'А',value:A},
          ruSh:{name:'Ш',value:rSh},
          ruShe:{name:'Щ',value:rShe},
          ruTz:{name:'Ъ',value:rTz},
+         ruWtf:{name:'Ы',value:rWtf},
          ruAa:{name:'Э',value:rAa},
          ruMz:{name:'Ь',value:rMz},
          ruU:{name:'Ю',value:rU},
