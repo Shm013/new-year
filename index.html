@@ -4,7 +4,6 @@
         <title>Pixel-writer</title>
         <style type="text/css">
             * {
-                margin: 0;
                 padding: 0;
                 border-collapse: collapse;
             }
@@ -14,6 +13,22 @@
             body{
                 position: relative;
                 min-height: 100%;
+            }
+            button, textarea {
+                font-weight: bold;
+                padding: 10px;
+                border: 1px solid CornflowerBlue;
+                border-radius: 10px;
+            }
+            h1, p{
+                font-weight: bold;
+                font-size: 200%;
+                color: #cecece;
+                text-shadow: #00023c 1px 1px 0, #00023c -1px -1px 0, 
+                 #00023c -1px 1px 0, #00023c 1px -1px 0;
+            }
+            p{
+                font-size: 120%;
             }
             .wrapper {
                 padding-bottom:70px;
@@ -35,12 +50,22 @@
                 border: 2px solid CornflowerBlue;
                 border-radius: 39px;
             }
+            .header{
+                font-size:180%;
+            }
             header, section, footer, aside, nav, article, figure{ 
                 display: block;
                 text-align: center;
             }
             #q0, #q1, #message, #present{
                 display: none;
+            }
+            #shm{
+                width:300px;
+                background-color: #6d6d6d;
+                color: #00386b;
+                border-radius:5px;
+                margin: 0 auto;
             }
         </style>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -64,7 +89,7 @@
                     <p>Да расcлабся - мне пофигу).</p>
                     <h1>Я типа Дед Мороз. Как тебя зовут?</h1>
                     <textarea id="text"></textarea>
-                    <button>OK.</button>
+                    <div><button>OK.</button></div>
                 </section>
             </section>
             <section id="message">
@@ -73,14 +98,15 @@
                 <button>Да! Халява же!</button>
             </section>
             <section id="present">
-                <p>Вот он:</p>
+                <h1>Вот он:</h1>
                 <img src="img/present.jpg" />
-                <p>Ну да, подарок липовый. А ты думал(а) в сказу попал(а)?</p>
+                <p>Ну да, подарок липовый. А ты думал(а) в сказку попал(а)?</p>
             </section>
         </section>
         <footer class="footer">
-            <p>Shm do it!</p>
-            <p><a>https://github.com/Shm13/<a></p>
+            <div id="shm">
+                <p>Shm do it!</p>
+            </div>
         </footer>
     </body>
 </html>
